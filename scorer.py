@@ -79,10 +79,12 @@ class scorer:
         with open(fp, 'w') as fw:  # 循环写入
             cf.write(fw)
         root.destroy()
+
 if __name__ == '__main__':
     cf = ConfigParser()
     cf.read("./config.ini")
     layers = cf.get("savedata", "layers")
     score = cf.get("savedata", "score")
-    a = scorer(layers,score)
+    print type(layers)
+    a = scorer(int(layers),int(score))
     a.tk_gui()
